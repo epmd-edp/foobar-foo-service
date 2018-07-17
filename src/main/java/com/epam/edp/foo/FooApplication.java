@@ -1,12 +1,12 @@
-package com.epam.edp.demo;
+package com.epam.edp.foo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class FooApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(FooApplication.class, args);
 	}
 }
