@@ -6,4 +6,6 @@ package com.epam.edp.foo.service;
 public interface FooService {
 
     void postMessage(String body);
+
+    String getDumbClientResponse();
 }

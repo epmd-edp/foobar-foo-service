@@ -43,4 +43,9 @@ public class FooController {
     public String getDeveloperProperties() {
         return profileProperties;
     }
+
+    @GetMapping(value = "/bar/dumb/client")
+    public String getDumbClientResponse() {
+        return fooService.getDumbClientResponse();
+    }
 }

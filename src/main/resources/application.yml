@@ -16,4 +16,3 @@ foo:
   config:
     default: default
     secret: secret
-
