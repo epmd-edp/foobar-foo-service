@@ -12,7 +12,6 @@ spring:
     kubernetes:
       config:
         enabled: true
-        name: foo
         enableApi: true
       reload:
         enabled: true

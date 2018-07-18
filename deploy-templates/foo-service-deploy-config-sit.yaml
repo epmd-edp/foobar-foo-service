@@ -30,6 +30,6 @@ objects:
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    name: "foo"
+    name: "foo-dynamic"
   data:
     foo.config.dynamicConfigMap: "dynamic value from config map"
