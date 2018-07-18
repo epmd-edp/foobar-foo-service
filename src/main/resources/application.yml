@@ -1,6 +1,10 @@
 server:
   port: 8080
 
+endpoints:
+  restart:
+    enabled: true
+
 spring:
   profiles:
     active: dev
@@ -12,7 +16,7 @@ spring:
         enableApi: true
       reload:
         enabled: true
-        strategy: refresh
+        strategy: restart_context
         mode: event
       discovery:
         enabled: false
