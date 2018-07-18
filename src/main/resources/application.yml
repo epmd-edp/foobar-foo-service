@@ -8,11 +8,11 @@ spring:
     kubernetes:
       config:
         enabled: true
-        name: foo-service-dynamic
+        name: foo
         enableApi: true
       reload:
         enabled: true
-        strategy: restart_context
+        strategy: refresh
         mode: event
       discovery:
         enabled: false
@@ -30,3 +30,5 @@ foo:
     secret: secret
     configmap: default
     dynamicConfigMap: default
+
+management.endpoint.restart.enabled: true

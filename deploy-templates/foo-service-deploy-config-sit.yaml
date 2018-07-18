@@ -27,6 +27,6 @@ objects:
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    name: "foo-service-dynamic"
+    name: "foo"
   data:
     foo.config.dynamicConfigMap: "dynamic value from config map"
