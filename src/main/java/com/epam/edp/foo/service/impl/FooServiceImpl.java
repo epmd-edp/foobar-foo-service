@@ -34,6 +34,6 @@ public class FooServiceImpl implements FooService {
             backoff = @Backoff(delay = 1000)
     )
     public String getDumbClientResponse() {
-        return restTemplate.getForEntity("http://bar:8080/dumb/client", String.class).getBody();
+        return restTemplate.getForEntity("http://bar-service:8080/dumb/client", String.class).getBody();
     }
 }
