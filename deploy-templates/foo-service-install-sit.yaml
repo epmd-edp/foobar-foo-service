@@ -192,7 +192,7 @@ objects:
               memory: 1Gi
           env:
           - name: JAVA_OPTIONS
-            value: '-Dspring.config.location=/opt/deployment/config/additional.yml -Dspring.profiles.active=prod'
+            value: '-Dspring.config.location=/opt/deployment/config/application.yml -Dspring.profiles.active=prod'
           - name: POSTGRES_DATABASE
             value: "foo-service-db"
           - name: POSTGRES_USER
