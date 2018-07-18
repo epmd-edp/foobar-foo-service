@@ -12,7 +12,7 @@ spring:
         enableApi: true
       reload:
         enabled: true
-        strategy: refresh
+        strategy: restart_context
         mode: event
       discovery:
         enabled: false
