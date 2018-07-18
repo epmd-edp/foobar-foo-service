@@ -22,8 +22,11 @@ objects:
   metadata:
     name: "foo-service"
   data:
-    foo.config.default: "change default"
-    foo.config.configmap: "new value from configmap"
+    application.yml: >
+      foo:
+        config:
+          default: "new default value"
+          configmap: "new value from configmap"
 - apiVersion: v1
   kind: ConfigMap
   metadata:

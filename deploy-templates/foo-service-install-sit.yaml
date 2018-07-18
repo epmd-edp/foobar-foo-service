@@ -201,7 +201,8 @@ objects:
             value: "admin"
           volumeMounts:
           - name: application-config
-            mountPath: "/opt/deployment/config/additional.yml"
+            mountPath: "/opt/deployment/config/application.yml"
+            subPath: application.yml
         volumes:
         - name: application-config
           configMap:
