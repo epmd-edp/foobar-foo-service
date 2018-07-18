@@ -2,9 +2,10 @@ package com.epam.edp.foo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.retry.annotation.EnableRetry;
 
+@ConfigurationProperties
 @EnableFeignClients
 @SpringBootApplication
 public class FooApplication {
