@@ -22,4 +22,4 @@ objects:
   metadata:
     name: "foo-service"
   data:
-    key: "value"
+    foo.config.default: "change default"
