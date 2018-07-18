@@ -1,4 +1,9 @@
+server:
+  port: 8080
+
 spring:
+  profiles:
+    active: dev
   rabbitmq:
     host: rabbitmq
     port: 5672
@@ -6,3 +11,9 @@ spring:
     password: guest
     exchange: foo
     routingkey: foobar
+
+foo:
+  config:
+    default: default
+    secret: secret
+

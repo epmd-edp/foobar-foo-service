@@ -191,6 +191,8 @@ objects:
             requests:
               memory: 1Gi
           env:
+          - name: JAVA_OPTIONS
+            value: '-Dspring.profiles.active=prod'
           - name: POSTGRES_DATABASE
             value: "foo-service-db"
           - name: POSTGRES_USER
