@@ -1,5 +1,6 @@
 package com.epam.edp.foo.service.impl;
 
+import com.epam.edp.foo.feign.FeignBar;
 import com.epam.edp.foo.service.FooService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class FooServiceImpl implements FooService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private FeignBar feignBar;
+
     public void postMessage(String body) {
         rabbitTemplate.convertAndSend(routingkey, body);
     }
@@ -35,5 +39,9 @@ public class FooServiceImpl implements FooService {
     )
     public String getDumbClientResponse() {
         return restTemplate.getForEntity("http://bar-service:8080/dumb/client", String.class).getBody();
+    }
+
+    public String getFeignClientResponse() {
+        return feignBar.feignResponse();
     }
 }

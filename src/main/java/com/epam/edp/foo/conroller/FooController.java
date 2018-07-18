@@ -48,4 +48,9 @@ public class FooController {
     public String getDumbClientResponse() {
         return fooService.getDumbClientResponse();
     }
+
+    @GetMapping(value = "/bar/feign/client")
+    public String getFeignClientResponse() {
+        return fooService.getFeignClientResponse();
+    }
 }
