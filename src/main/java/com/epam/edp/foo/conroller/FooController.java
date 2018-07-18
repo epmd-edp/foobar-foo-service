@@ -20,8 +20,11 @@ public class FooController {
     @Value("${foo.config.profile}")
     private String profileProperties;
 
-    @Value("${foo.config.dinamicConfigMap}")
-    private String configMapProp;
+    @Value("${foo.config.configmap}")
+    private String configMapValue;
+
+    @Value("${foo.config.dynamicConfigMap}")
+    private String dynamicConfigMapProp;
 
     @Autowired
     private FooService fooService;
@@ -42,14 +45,19 @@ public class FooController {
         return defaultProperties;
     }
 
+    @GetMapping(value = "/api/properties/configMap")
+    public String getConfigMapProperties() {
+        return configMapValue;
+    }
+
     @GetMapping(value = "/api/properties/profile")
     public String getDeveloperProperties() {
         return profileProperties;
     }
 
-    @GetMapping(value = "/api/properties/configMap")
-    public String getConfigMapProperties() {
-        return configMapProp;
+    @GetMapping(value = "/api/properties/configMap/dynamic")
+    public String getDynamicConfigMapProperties() {
+        return dynamicConfigMapProp;
     }
 
     @GetMapping(value = "/bar/dumb/client")

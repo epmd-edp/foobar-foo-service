@@ -23,4 +23,5 @@ objects:
     name: "foo-service"
   data:
     foo.config.default: "change default"
-    foo.config.dinamicConfigMap: "value from config map"
+    foo.config.configmap: "new value from configmap"
+    foo.config.dinamicConfigMap: "dynamic value from config map"
