@@ -192,7 +192,7 @@ objects:
               memory: 1Gi
           env:
           - name: JAVA_OPTIONS
-            value: '--spring.config.location=/opt/deployment/config/additional.yml'
+            value: '-Dspring.config.location=/opt/deployment/config/additional.yml -Dspring.profiles.active=prod'
           - name: POSTGRES_DATABASE
             value: "foo-service-db"
           - name: POSTGRES_USER
@@ -202,7 +202,6 @@ objects:
           volumeMounts:
           - name: application-config
             mountPath: "/opt/deployment/config/additional.yml"
-            subPath: additional.yml
         volumes:
         - name: application-config
           configMap:
