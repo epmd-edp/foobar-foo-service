@@ -1,3 +1,3 @@
 foo:
   config:
-    profile: Hello, Production!
+    profile: "config:foo.config.profile, src:application-prod.yml"

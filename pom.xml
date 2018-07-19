@@ -70,15 +70,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
+            <groupId>io.fabric8</groupId>
             <artifactId>spring-cloud-starter-kubernetes</artifactId>
-            <version>0.2.0.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-kubernetes-config</artifactId>
-            <version>0.2.0.RELEASE</version>
+            <version>0.1.6</version>
         </dependency>
 
         <dependency>
@@ -87,9 +81,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
+            <groupId>io.fabric8</groupId>
             <artifactId>spring-cloud-starter-kubernetes-netflix</artifactId>
-            <version>0.2.0.RELEASE</version>
+            <version>0.1.6</version>
         </dependency>
 
         <dependency>

@@ -3,11 +3,6 @@ package com.epam.edp.foo.service;
 /**
  * @author Pavlo_Yemelianov
  */
-public interface FooService {
-
+public interface AsyncService {
     void postMessage(String body);
-
-    String getDumbClientResponse();
-
-    String getFeignClientResponse();
 }

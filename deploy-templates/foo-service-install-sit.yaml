@@ -200,13 +200,13 @@ objects:
           - name: POSTGRES_PASSWORD
             value: "admin"
           volumeMounts:
-          - name: application-config
+          - name: foo-mount
             mountPath: "/opt/deployment/config/application.yml"
             subPath: application.yml
         volumes:
-        - name: application-config
+        - name: foo-mount
           configMap:
-            name: foo-service
+            name: foo-mount
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
         dnsPolicy: ClusterFirst

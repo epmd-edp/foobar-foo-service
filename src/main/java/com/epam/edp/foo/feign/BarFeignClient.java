@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Pavlo_Yemelianov
  */
 @FeignClient("bar-service")
-public interface FeignBar {
+public interface BarFeignClient {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/feign/client")
-    String feignResponse();
+    @RequestMapping(method = RequestMethod.GET, value = "/api/setting")
+    String getSetting();
 }

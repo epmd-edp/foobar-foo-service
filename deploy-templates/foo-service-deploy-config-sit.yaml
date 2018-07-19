@@ -20,16 +20,15 @@ objects:
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    name: "foo-service"
+    name: "foo-mount"
   data:
     application.yml: >
       foo:
         config:
-          default: "new default value"
-          configmap: "new value from configmap"
+          mount: "config:foo.config.mount, src:foo-mount"
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    name: "foo-dynamic"
+    name: "foo-reload"
   data:
-    foo.config.dynamicConfigMap: "dynamic value from config map"
+    foo.config.reload: "config:foo.config.reload, src:foo-reload"

@@ -4,4 +4,4 @@ spring:
   cloud:
     kubernetes:
       config:
-        name: foo-dynamic
+        name: foo-reload

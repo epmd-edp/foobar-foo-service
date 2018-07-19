@@ -29,9 +29,9 @@ spring:
 
 foo:
   config:
-    default: default
-    secret: secret
-    configmap: default
-    dynamicConfigMap: default
+    default: "config:foo.config.default, src:application.yml"
+    profile: "config:foo.config.profile, src:application.yml"
+    mount: "config:foo.config.mount, src:application.yml"
+    reload: "config:foo.config.reload, src:application.yml"
 
 management.endpoint.restart.enabled: true

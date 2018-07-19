@@ -1,9 +1,9 @@
 package com.epam.edp.foo.conroller;
 
-import com.epam.edp.foo.dto.Response;
-import com.epam.edp.foo.service.FooService;
+import com.epam.edp.foo.service.AsyncService;
+import com.epam.edp.foo.service.ConfigService;
+import com.epam.edp.foo.service.RpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,60 +13,47 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class FooController {
-
-    @Value("${foo.config.default}")
-    private String defaultProperties;
-
-    @Value("${foo.config.profile}")
-    private String profileProperties;
-
-    @Value("${foo.config.configmap}")
-    private String configMapValue;
-
-    @Value("${foo.config.dynamicConfigMap}")
-    private String dynamicConfigMapProp;
-
     @Autowired
-    private FooService fooService;
+    private ConfigService configService;
+    @Autowired
+    private RpcService rpcService;
+    @Autowired
+    private AsyncService asyncService;
 
-    @GetMapping(value = "/message")
-    void postMessage(@RequestParam String body) {
-        fooService.postMessage(body);
+    @GetMapping(value = "/api/config/default")
+    public String getDefaultConfig() {
+        return configService.getDefaultConfig();
     }
 
-    @GetMapping(value = "/api/response")
-    public Response getResponse(){
-        Response response = new Response();
-        return response;
+    @GetMapping(value = "/api/config/profile")
+    public String getProfileConfig() {
+        return configService.getProfileConfig();
     }
 
-    @GetMapping(value = "/api/properties/default")
-    public String getDefaultProperties() {
-        return defaultProperties;
+    @GetMapping(value = "/api/config/mount")
+    public String getMountConfig() {
+        return configService.getMountConfig();
     }
 
-    @GetMapping(value = "/api/properties/configMap")
-    public String getConfigMapProperties() {
-        return configMapValue;
-    }
-
-    @GetMapping(value = "/api/properties/profile")
-    public String getDeveloperProperties() {
-        return profileProperties;
-    }
-
-    @GetMapping(value = "/api/properties/configMap/dynamic")
+    @GetMapping(value = "/api/config/reload")
     public String getDynamicConfigMapProperties() {
-        return dynamicConfigMapProp;
+        return configService.getReloadConfig();
     }
 
-    @GetMapping(value = "/bar/dumb/client")
-    public String getDumbClientResponse() {
-        return fooService.getDumbClientResponse();
+    @GetMapping(value = "/api/rpc/dumb-client")
+    public String callDumbClient() {
+        return rpcService.callDumbClient();
     }
 
-    @GetMapping(value = "/bar/feign/client")
-    public String getFeignClientResponse() {
-        return fooService.getFeignClientResponse();
+    @GetMapping(value = "/api/rpc/feign-client")
+    public String callFeignClient() {
+        return rpcService.callFeignClient();
     }
+
+    @GetMapping(value = "/api/async/message")
+    public String postMessage(@RequestParam String setting) {
+        asyncService.postMessage(setting);
+        return "message was send, check the bar service";
+    }
+
 }
