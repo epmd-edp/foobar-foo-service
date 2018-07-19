@@ -14,19 +14,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqConfig {
 
-    @Value("${rabbitmq.host}")
+    @Value("${spring.rabbitmq.host}")
     private String rabbitmqHost;
 
-    @Value("${rabbitmq.port}")
+    @Value("${spring.rabbitmq.port}")
     private Integer port;
 
-    @Value("${rabbitmq.username}")
+    @Value("${spring.rabbitmq.username}")
     private String username;
 
-    @Value("${rabbitmq.password}")
+    @Value("${spring.rabbitmq.password}")
     private String password;
 
-    @Value("${rabbitmq.exchange}")
+    @Value("${spring.rabbitmq.exchange}")
     private String exchange;
 
     @Bean

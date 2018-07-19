@@ -19,14 +19,13 @@ spring:
         mode: event
       discovery:
         enabled: false
-
-rabbitmq:
-  host: rabbitmq
-  port: 5672
-  exchange: foo
-  routingkey: foobar
-  username: guest
-  password: guest
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    exchange: foo
+    routingkey: foobar
+    username: guest
+    password: guest
 
 foo:
   config:
