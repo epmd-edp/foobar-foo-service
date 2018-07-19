@@ -22,10 +22,8 @@ objects:
   metadata:
     name: "foo-mount"
   data:
-    application.yml: >
-      foo:
-        config:
-          mount: "config:foo.config.mount, src:foo-mount"
+    mount-config: >
+      foo.config.mount: "config:foo.config.mount, src:foo-mount"
 - apiVersion: v1
   kind: ConfigMap
   metadata:
@@ -37,5 +35,5 @@ objects:
   type: Opaque
   metadata:
     name: "foo-secret"
-  data:
-    foo.config.secret: Y29uZmlnOmZvby5jb25maWcuc2VjcmV0LCBzcmM6Zm9vLXNlY3JldA==
+  stringData:
+    foo.config.secret: config:foo.config.secret, src:foo-secret

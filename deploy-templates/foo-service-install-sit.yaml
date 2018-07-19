@@ -192,7 +192,10 @@ objects:
               memory: 1Gi
           env:
           - name: JAVA_OPTIONS
-            value: '-Dspring.config.location=/opt/deployment/config/application.yml -Dspring.profiles.active=prod'
+            value: >
+              -Dspring.profiles.active=prod
+              -Dspring.config.location=/etc/config/mount-config.properties
+              -Dspring.cloud.kubernetes.secrets.paths=/etc/secrets
           - name: POSTGRES_DATABASE
             value: "foo-service-db"
           - name: POSTGRES_USER
@@ -201,12 +204,19 @@ objects:
             value: "admin"
           volumeMounts:
           - name: foo-mount
-            mountPath: "/opt/deployment/config/application.yml"
-            subPath: application.yml
+            mountPath: "/etc/config"
+          - name: foo-secret
+            mountPath: "/etc/secrets"
         volumes:
         - name: foo-mount
           configMap:
             name: foo-mount
+            items:
+              - key: mount-config
+                path: mount-config.properties
+        - name: foo-secret
+          secret:
+            secretName: foo-secret
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
         dnsPolicy: ClusterFirst

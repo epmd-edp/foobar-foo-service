@@ -5,6 +5,3 @@ spring:
     kubernetes:
       config:
         name: foo-reload
-      secrets:
-        name: foo-secret
-        enableApi: true
