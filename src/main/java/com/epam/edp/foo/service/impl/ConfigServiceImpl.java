@@ -17,6 +17,8 @@ public class ConfigServiceImpl implements ConfigService {
     private String mountConfig;
     @Value("${foo.config.reload}")
     private String reloadConfig;
+    @Value("${foo.config.secret}")
+    private String secretConfig;
 
     public String getDefaultConfig() {
         return defaultConfig;
@@ -32,5 +34,9 @@ public class ConfigServiceImpl implements ConfigService {
 
     public String getReloadConfig() {
         return reloadConfig;
+    }
+
+    public String getSecretConfig() {
+        return secretConfig;
     }
 }

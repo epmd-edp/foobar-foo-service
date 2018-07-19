@@ -19,6 +19,7 @@ spring:
         mode: event
       discovery:
         enabled: false
+
   rabbitmq:
     host: rabbitmq
     port: 5672
@@ -33,5 +34,6 @@ foo:
     profile: "config:foo.config.profile, src:application.yml"
     mount: "config:foo.config.mount, src:application.yml"
     reload: "config:foo.config.reload, src:application.yml"
+    secret: "config:foo.config.secret, src:application.yml"
 
 management.endpoint.restart.enabled: true

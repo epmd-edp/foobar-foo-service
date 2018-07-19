@@ -36,8 +36,13 @@ public class FooController {
     }
 
     @GetMapping(value = "/api/config/reload")
-    public String getDynamicConfigMapProperties() {
+    public String getReloadConfig() {
         return configService.getReloadConfig();
+    }
+
+    @GetMapping(value = "/api/config/secret")
+    public String getSecretConfig() {
+        return configService.getSecretConfig();
     }
 
     @GetMapping(value = "/api/rpc/dumb-client")

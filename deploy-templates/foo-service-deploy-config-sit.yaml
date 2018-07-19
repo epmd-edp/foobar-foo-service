@@ -32,3 +32,10 @@ objects:
     name: "foo-reload"
   data:
     foo.config.reload: "config:foo.config.reload, src:foo-reload"
+- apiVersion: v1
+  kind: Secret
+  type: Opaque
+  metadata:
+    name: "foo-secret"
+  data:
+    foo.config.secret: Y29uZmlnOmZvby5jb25maWcuc2VjcmV0LCBzcmM6Zm9vLXNlY3JldA==

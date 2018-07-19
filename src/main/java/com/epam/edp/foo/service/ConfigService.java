@@ -12,4 +12,5 @@ public interface ConfigService {
 
     String getReloadConfig();
 
+    String getSecretConfig();
 }
