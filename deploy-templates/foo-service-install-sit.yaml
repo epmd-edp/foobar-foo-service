@@ -205,8 +205,13 @@ objects:
           volumeMounts:
           - name: foo-mount
             mountPath: "/etc/config"
+            readOnly: true
           - name: foo-secret
-            mountPath: "/etc/secrets"
+            mountPath: "/etc/secrets/foo"
+            readOnly: true
+          - name: rabbitmq-secret
+            mountPath: "/etc/secrets/rabbitmq"
+            readOnly: true
         volumes:
         - name: foo-mount
           configMap:
@@ -217,6 +222,9 @@ objects:
         - name: foo-secret
           secret:
             secretName: foo-secret
+        - name: rabbitmq-secret
+          secret:
+            secretName: rabbitmq-secret
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
         dnsPolicy: ClusterFirst

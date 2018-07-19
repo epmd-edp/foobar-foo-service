@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AsyncServiceImpl implements AsyncService {
 
-    @Value("${spring.rabbitmq.routingkey}")
+    @Value("${rabbitmq.routingkey}")
     private String routingkey;
 
     @Autowired
