@@ -225,6 +225,11 @@ objects:
         - name: rabbitmq-secret
           secret:
             secretName: rabbitmq-secret
+            items:
+              - key: rabbitmq.username
+                path: spring.rabbitmq.username
+              - key: rabbitmq.password
+                path: spring.rabbitmq.password
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
         dnsPolicy: ClusterFirst
