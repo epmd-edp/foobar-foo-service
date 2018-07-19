@@ -23,7 +23,7 @@ objects:
     name: "foo-mount"
   data:
     mount-config: >
-      foo.config.mount: "config:foo.config.mount, src:foo-mount"
+      foo.config.mount: config:foo.config.mount, src:foo-mount
 - apiVersion: v1
   kind: ConfigMap
   metadata:
