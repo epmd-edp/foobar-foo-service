@@ -1,10 +1,3 @@
-server:
-  port: 8080
-
-endpoints:
-  restart:
-    enabled: true
-
 spring:
   profiles:
     active: dev
@@ -17,8 +10,6 @@ spring:
         enabled: true
         strategy: restart_context
         mode: event
-      discovery:
-        enabled: false
   rabbitmq:
     host: rabbitmq
     port: 5672
@@ -27,6 +18,10 @@ spring:
     exchange: foo
     routingkey: foobar
 
+endpoints:
+  restart:
+    enabled: true
+
 foo:
   config:
     default: "config:foo.config.default, src:application.yml"
@@ -34,5 +29,3 @@ foo:
     mount: "config:foo.config.mount, src:application.yml"
     reload: "config:foo.config.reload, src:application.yml"
     secret: "config:foo.config.secret, src:application.yml"
-
-management.endpoint.restart.enabled: true
