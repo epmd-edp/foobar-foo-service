@@ -43,6 +43,11 @@ public class FooController {
         return configService.getReloadConfig() + ". Host: " + getLocalHost();
     }
 
+    @GetMapping(value = "/api/config/dynamic")
+    public String getDynamicConfig() {
+        return configService.getDynamicConfig();
+    }
+
     @GetMapping(value = "/api/config/secret")
     public String getSecretConfig() {
         return configService.getSecretConfig() + ". Host: " + getLocalHost();

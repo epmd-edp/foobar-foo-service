@@ -28,4 +28,5 @@ foo:
     profile: "config:foo.config.profile, src:application.yml"
     mount: "config:foo.config.mount, src:application.yml"
     reload: "config:foo.config.reload, src:application.yml"
+    dynamic: "config:foo.config.dynamic, src:application.yml"
     secret: "config:foo.config.secret, src:application.yml"

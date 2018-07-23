@@ -31,6 +31,12 @@ objects:
   data:
     foo.config.reload: "config:foo.config.reload, src:foo-reload"
 - apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: "foo-dynamic"
+  data:
+    foo.config.dynamic: "config:foo.config.dynamic, src:foo-dynamic"
+- apiVersion: v1
   kind: Secret
   type: Opaque
   metadata:

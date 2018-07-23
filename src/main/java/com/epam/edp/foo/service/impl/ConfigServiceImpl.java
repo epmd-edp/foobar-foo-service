@@ -1,6 +1,8 @@
 package com.epam.edp.foo.service.impl;
 
 import com.epam.edp.foo.service.ConfigService;
+import com.netflix.config.DynamicPropertyFactory;
+import com.netflix.config.DynamicStringProperty;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,10 @@ public class ConfigServiceImpl implements ConfigService {
 
     public String getSecretConfig() {
         return secretConfig;
+    }
+
+    public String getDynamicConfig() {
+        DynamicStringProperty property = DynamicPropertyFactory.getInstance().getStringProperty("foo.config.dynamic", "default");
+        return property.get();
     }
 }
