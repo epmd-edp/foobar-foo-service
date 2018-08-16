@@ -43,3 +43,11 @@ objects:
     name: "foo-secret"
   stringData:
     foo.config.secret: config:foo.config.secret, src:foo-secret
+- apiVersion: v1
+  kind: Secret
+  type: Opaque
+  metadata:
+    name: "rabbitmq-secret"
+  stringData:
+    rabbitmq.username: admin
+    rabbitmq.password: secret-rabbit
