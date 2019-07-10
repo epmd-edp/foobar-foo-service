@@ -1,3 +1,0 @@
-foo:
-  config:
-    profile: "config:foo.config.profile, src:application-dev.yml"

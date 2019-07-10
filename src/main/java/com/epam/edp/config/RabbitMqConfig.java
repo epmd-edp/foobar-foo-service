@@ -1,4 +1,4 @@
-package com.epam.edp.foo.config;
+package com.epam.edp.config;
 
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
