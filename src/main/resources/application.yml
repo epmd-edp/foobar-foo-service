@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: dev
+---
+spring:
+  profiles: dev
   cloud:
     kubernetes:
       config:
@@ -13,20 +16,27 @@ spring:
   rabbitmq:
     host: rabbitmq
     port: 5672
-    username: guest
-    password: guest
-    exchange: foo
-    routingkey: foobar
-
-endpoints:
-  restart:
-    enabled: true
-
-foo:
-  config:
-    default: "config:foo.config.default, src:application.yml"
-    profile: "config:foo.config.profile, src:application.yml"
-    mount: "config:foo.config.mount, src:application.yml"
-    reload: "config:foo.config.reload, src:application.yml"
-    dynamic: "config:foo.config.dynamic, src:application.yml"
-    secret: "config:foo.config.secret, src:application.yml"
+    username: admin
+    password: admin
+    exchange: test-exchange
+    routingkey: test
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_DATABASE}:5432/${POSTGRES_DATABASE}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always
+  liquibase:
+    change-log: classpath:db/db.changelog.xml
+---
+spring:
+  profiles: test
+  liquibase:
+    change-log: classpath:db/db.changelog.xml
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+    exchange: test-exchange
+    routingkey: test

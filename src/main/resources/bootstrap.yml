@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: foo
-  cloud:
-    kubernetes:
-      config:
-        name: foo-reload
