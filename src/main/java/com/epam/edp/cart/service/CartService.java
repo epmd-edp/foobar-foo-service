@@ -13,4 +13,6 @@ public interface CartService {
     CartModel getCart(Integer id);
 
     void removeCart(Integer id);
+
+    String callFeign();
 }

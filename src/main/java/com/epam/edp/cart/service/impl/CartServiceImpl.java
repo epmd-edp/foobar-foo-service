@@ -3,6 +3,7 @@ package com.epam.edp.cart.service.impl;
 import com.epam.edp.cart.model.CartModel;
 import com.epam.edp.cart.repository.CartRepository;
 import com.epam.edp.cart.service.CartService;
+import com.epam.edp.order.feign.OrderFeignClient;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +29,9 @@ public class CartServiceImpl implements CartService {
     @Autowired
     private CartRepository cartRepository;
 
-    @Override
+    @Autowired
+    private OrderFeignClient orderFeignClient;
+
     public void postMessage(String msg) {
         rabbitTemplate.convertAndSend(routingkey, msg);
     }
@@ -43,6 +46,11 @@ public class CartServiceImpl implements CartService {
         return restTemplate
                 .getForEntity("http://order-service:8080/order-service/time", String.class)
                 .getBody();
+    }
+
+    @Override
+    public String callFeign() {
+        return orderFeignClient.getTime();
     }
 
     @Override

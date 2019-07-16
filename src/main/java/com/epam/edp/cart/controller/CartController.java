@@ -28,6 +28,11 @@ public class CartController {
         return "Order service returned " + cartService.callOrderService();
     }
 
+    @GetMapping("/call-order-service/feign")
+    public String callFeign() {
+        return cartService.callFeign();
+    }
+
     @PostMapping("/carts")
     public String createCart() {
         Integer newCartId = cartService.createCart();
