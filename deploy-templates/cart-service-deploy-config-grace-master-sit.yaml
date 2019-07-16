@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: "deploy-config"
+objects:
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: "cart-service-mount-config"
+    data:
+      mount-config: >
+        config.mount: mounted configuration
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: "cart-service-reload-config"
+    data:
+      config.reload: "configuration that can be reloaded"
+  - apiVersion: v1
+    kind: Secret
+    type: Opaque
+    metadata:
+      name: "cart-service-secret"
+    stringData:
+      config.secret: "very sensitive information"

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: cart-service
+  cloud:
+    kubernetes:
+      config:
+        name: cart-service-reload-config

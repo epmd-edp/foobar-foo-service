@@ -1,6 +1,11 @@
 spring:
   profiles:
     active: dev
+config:
+  default: "some regular Spring Boot configuration"
+  mount: "not mounted configuration"
+  reload: "not reloaded information"
+  secret: "not secret information"
 ---
 spring:
   profiles: dev
@@ -28,6 +33,10 @@ spring:
     initialization-mode: always
   liquibase:
     change-log: classpath:db/db.changelog.xml
+
+config:
+  profile: "profile specific configuration for application"
+
 ---
 spring:
   profiles: test
@@ -40,3 +49,6 @@ spring:
     password: secret-rabbit
     exchange: test-exchange
     routingkey: test
+
+config:
+  profile: "test profile specific configuration for application"
