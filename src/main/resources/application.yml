@@ -1,23 +1,20 @@
 spring:
   profiles:
     active: dev
+
 config:
   default: "some regular Spring Boot configuration"
   mount: "not mounted configuration"
   reload: "not reloaded information"
   secret: "not secret information"
+
+management:
+  endpoint:
+    restart:
+      enabled: true
 ---
 spring:
   profiles: dev
-  cloud:
-    kubernetes:
-      config:
-        enabled: true
-        enableApi: true
-      reload:
-        enabled: true
-        strategy: restart_context
-        mode: event
   rabbitmq:
     host: rabbitmq
     port: 5672
@@ -36,7 +33,6 @@ spring:
 
 config:
   profile: "profile specific configuration for application"
-
 ---
 spring:
   profiles: test

@@ -5,3 +5,9 @@ spring:
     kubernetes:
       config:
         name: cart-service-reload-config
+        enabled: true
+        enableApi: true
+      reload:
+        enabled: true
+        strategy: restart_context
+        mode: event
