@@ -1,6 +1,15 @@
 spring:
   profiles:
     active: dev
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: secret-rabbit
+    exchange: test-exchange
+    routingkey: test
+  liquibase:
+    change-log: classpath:db/db.changelog.xml
 
 config:
   default: "some regular Spring Boot configuration"
@@ -14,37 +23,47 @@ management:
       enabled: true
 ---
 spring:
+  profiles: local
+  datasource:
+    url: jdbc:h2:~/test
+    username:
+    password:
+    driverClassName: org.h2.Driver
+  cloud:
+    kubernetes:
+      ribbon:
+        enabled: false
+
+config:
+  profile: "profile specific configuration for application"
+
+order-service:
+  ribbon:
+    listOfServers: https://order-service-gk-grace-master-dev.dev.gk-edp.com
+
+---
+spring:
   profiles: dev
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: admin
-    password: secret-rabbit
-    exchange: test-exchange
-    routingkey: test
   datasource:
     url: jdbc:postgresql://${POSTGRES_DATABASE}:5432/${POSTGRES_DATABASE}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
     driverClassName: org.postgresql.Driver
     initialization-mode: always
-  liquibase:
-    change-log: classpath:db/db.changelog.xml
-
 config:
   profile: "profile specific configuration for application"
+
+order-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    MaxAutoRetriesNextServer: 1
+    MaxAutoRetries: 0
+    OkToRetryOnAllOperations: true
+    ReadTimeout: 5000
+
 ---
 spring:
   profiles: test
-  liquibase:
-    change-log: classpath:db/db.changelog.xml
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: admin
-    password: secret-rabbit
-    exchange: test-exchange
-    routingkey: test
 
 config:
   profile: "test profile specific configuration for application"
